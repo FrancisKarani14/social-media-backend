@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_migrate import Migrate
 from models import db
 
@@ -14,8 +14,12 @@ db.init_app(app)
 
 @app.route("/")
 def welcome():
+    user="Karani"
+    return render_template("index.html", name=user)
 
-    return "<h1>Welcome to facebook</h1>"
+    
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
